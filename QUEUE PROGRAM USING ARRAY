@@ -1,0 +1,64 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 100
+int queue[SIZE],rear=-1,front=-1;
+void main(){
+	void enqueue();
+	void dequeue();
+	void diplay();
+	void exit();
+	int choice,value;
+	printf("\n1.enqueue\n2.dequeue\n3.diplay\n4.exit");
+	printf("enter your choice:\n");
+	    scanf("%d",&choice);
+	printf("enter the valuue:\n");
+	    scanf("%d",&value);
+
+        while(1){
+        	switch(choice){
+        	case 1:enqueue();
+        	break;
+        	case 2:dequeue();
+        	break;
+        	case 3:display();
+        	break;
+        	case 4:exit(0);
+        	default:printf("wrong selection");
+		}
+    }
+}
+void enqueue(int value){
+   if(rear==SIZE-1)
+	printf("queue is full insertion is not possible");
+	
+	else{
+		if (front==-1)
+	    front=0;
+	    rear++;
+	    queue[rear]=value;
+	    printf("%d is inserted sucessfully",queue[rear]);
+	   }
+    }
+
+void dequeue(int value){
+if (rear==front)
+	printf("queue is full insertion is sucessful");
+	
+	else
+	{
+	 printf("%d is inserted sucessfully",queue[front]);
+     front++;
+     if(front==rear)
+     front=rear=-1;
+	}
+}
+void display(){
+if (rear==-1)
+	printf("queue is empty");
+	
+	else{
+		int i;
+		for(i=front;i<=rear;i++)
+		printf("%d",queue[i]);
+	}
+}
